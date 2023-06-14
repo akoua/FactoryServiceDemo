@@ -1,0 +1,36 @@
+@startuml
+class FactoryServiceDemoApplication {
++ {static} void main(String[])
+}
+class TransfertMoneyM2 {
++ boolean sendMoney()
+}
+abstract class TransfertMoneyService {
++ Boolean checkMoney()
++ {abstract}boolean sendMoney()
+}
+class TransfertMoneyM1 {
++ boolean sendMoney()
+}
+class FactoryBeanConfig {
++ FactoryBean<?> createTransferMoneyMethode()
+- ServiceLocatorFactoryBean createFactoryBean(Class<T>)
+}
+class TransferController {
+- ITransferMoneyFactory transferMoneyFactory
++ void transferMoney(String)
+}
+enum TransfertType {
++  METHODE1
++  METHODE2
++ {static} String METHODE1_NAME
++ {static} String METHODE2_NAME
++ String transfertServiceName
+}
+interface ITransferMoneyFactory {
+}
+
+
+TransfertMoneyService <|-- TransfertMoneyM2
+TransfertMoneyService <|-- TransfertMoneyM1
+@enduml
